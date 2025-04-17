@@ -1,5 +1,0 @@
-!<arch>
-libhtab.c/      0           0     0     644     19        `
-#include "htab.h"
-
-

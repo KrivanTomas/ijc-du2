@@ -40,4 +40,3 @@ void print_pair(htab_pair_t *pair) {
     printf("%s: %u\n", pair->key, pair->value);
 }
 
-

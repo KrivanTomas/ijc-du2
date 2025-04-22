@@ -1,3 +1,8 @@
 tail
 maxwordcount
+maxwordcount-dynamic
 maxwordcount-cpp
+
+*.o
+*.a
+*.so

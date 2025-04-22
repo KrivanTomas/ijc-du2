@@ -53,7 +53,7 @@ int main(int argc, char **argv) {
     if(filename_position != -1) {
         source = fopen(argv[filename_position], "r");
         if(source == NULL) {
-            perror("Could not open source file");
+            perror("fopen");
             return 1;
         }
     }
@@ -62,6 +62,7 @@ int main(int argc, char **argv) {
     count = count != -1 ? count : DEFAULT_LINE_COUNT;
 
     print_tail(source, count);
+    fclose(source);
 }
 
 void print_tail(FILE *stream, unsigned int count) {

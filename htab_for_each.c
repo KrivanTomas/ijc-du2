@@ -1,3 +1,8 @@
+// htab_for_each.c
+// Řešení IJC-DU2, příklad 2), 24.4.2025
+// Autor: Tomáš Křivan, FIT
+// Přeloženo: gcc 11.4.0
+
 #include "libhtab-impl.h"
 
 void htab_for_each(const htab_t *t, void (*f)(htab_pair_t *data)) {

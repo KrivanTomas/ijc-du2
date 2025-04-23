@@ -1,14 +1,19 @@
+// io.c
+// Řešení IJC-DU2, příklad 2), 24.4.2025
+// Autor: Tomáš Křivan, FIT
+// Přeloženo: gcc 11.4.0
+
 #include <stdio.h>
 #include <ctype.h>
 #include <stdbool.h>
-
-bool length_warning = false;
+#include "io.h"
 
 int read_word(unsigned max, char s[max], FILE *f) {
+    static bool length_warning = false;
     int ch;
     size_t counter = 0;
     bool word_started = false;
-    while((ch = fgetc(f)) != EOF) {
+    while((ch = getc(f)) != EOF) {
         if(isspace(ch)) {
             if(!word_started) continue;
             s[counter] = '\0';

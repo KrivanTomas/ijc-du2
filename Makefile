@@ -1,7 +1,11 @@
+# Makefile
+# Řešení IJC-DU2 24.4.2025
+# Autor: Tomáš Křivan, FIT
+
 CC = gcc
-CFLAGS = -std=c11 -pedantic -Wall -Wextra
+CFLAGS = -std=c11 -pedantic -Wall -Wextra -O2
 CFLAGS += -fpic
-CFLAGS += -O2
+#CFLAGS += -g
 
 CXX = g++
 CXXFLAGS = -std=c++17 -pedantic -Wall -O2
@@ -29,6 +33,12 @@ libhtab.a: $(HTAB_OBJ)
 
 libhtab.so: $(HTAB_OBJ)
 	$(CC) $(CFLAGS) -shared $^ -o $@
+
+check: all
+	echo "Lorem ipsum dolor sit amet,\nconsectetur adipiscing elit.\nProin eu mollis mauris.\nAliquam maximus iaculis augue.\nSuspendisse erat magna,\nfeugiat sed accumsan eu,\ntincidunt quis elit." | ./tail -n 3
+	echo "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu mollis mauris. Aliquam maximus iaculis augue. Suspendisse erat magna, feugiat sed accumsan eu, tincidunt quis elit. Etiam aliquet felis sapien, ut elementum mauris ultricies a. Donec pharetra, lorem ac sodales gravida, leo orci luctus dui, at consequat orci neque sed ligula. Pellentesque non tellus vitae nisl sodales faucibus nec eget erat. Nullam nec ipsum diam. Donec eleifend felis elementum ex laoreet gravida. Nullam eu tempus massa. Integer viverra, leo et porta posuere, arcu mi sagittis risus, a facilisis velit velit at enim. Nunc sodales venenatis libero sed fringilla. Vestibulum sed velit scelerisque, aliquam dolor quis, volutpat neque. Vestibulum dignissim in elit quis gravida. In luctus, quam a imperdiet bibendum, arcu erat fringilla ante, nec consequat mi eros vel purus. Donec in justo aliquam, porttitor odio non, semper elit." | ./maxwordcount
+	export LD_LIBRARY_PATH="."; echo "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu mollis mauris. Aliquam maximus iaculis augue. Suspendisse erat magna, feugiat sed accumsan eu, tincidunt quis elit. Etiam aliquet felis sapien, ut elementum mauris ultricies a. Donec pharetra, lorem ac sodales gravida, leo orci luctus dui, at consequat orci neque sed ligula. Pellentesque non tellus vitae nisl sodales faucibus nec eget erat. Nullam nec ipsum diam. Donec eleifend felis elementum ex laoreet gravida. Nullam eu tempus massa. Integer viverra, leo et porta posuere, arcu mi sagittis risus, a facilisis velit velit at enim. Nunc sodales venenatis libero sed fringilla. Vestibulum sed velit scelerisque, aliquam dolor quis, volutpat neque. Vestibulum dignissim in elit quis gravida. In luctus, quam a imperdiet bibendum, arcu erat fringilla ante, nec consequat mi eros vel purus. Donec in justo aliquam, porttitor odio non, semper elit." | ./maxwordcount-dynamic
+	echo "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu mollis mauris. Aliquam maximus iaculis augue. Suspendisse erat magna, feugiat sed accumsan eu, tincidunt quis elit. Etiam aliquet felis sapien, ut elementum mauris ultricies a. Donec pharetra, lorem ac sodales gravida, leo orci luctus dui, at consequat orci neque sed ligula. Pellentesque non tellus vitae nisl sodales faucibus nec eget erat. Nullam nec ipsum diam. Donec eleifend felis elementum ex laoreet gravida. Nullam eu tempus massa. Integer viverra, leo et porta posuere, arcu mi sagittis risus, a facilisis velit velit at enim. Nunc sodales venenatis libero sed fringilla. Vestibulum sed velit scelerisque, aliquam dolor quis, volutpat neque. Vestibulum dignissim in elit quis gravida. In luctus, quam a imperdiet bibendum, arcu erat fringilla ante, nec consequat mi eros vel purus. Donec in justo aliquam, porttitor odio non, semper elit." | ./maxwordcount-cpp
 
 .PHONY: pack
 pack:

@@ -1,6 +1,7 @@
 #include "htab.h"
 #include <stdint.h>
 
+#ifdef MY_HASH_FUNCTION
 size_t htab_hash_function(const char *str) {
     uint32_t h=0;     // musí mít 32 bitů
     const unsigned char *p;
@@ -8,3 +9,4 @@ size_t htab_hash_function(const char *str) {
         h = h * 12134 + *p;
     return h;
 }
+#endif

@@ -1,4 +1,4 @@
-// tail.c
+//10 tail.c
 // Řešení IJC-DU2, příklad 1), 24.4.2025
 // Autor: Tomáš Křivan, FIT
 // Přeloženo: gcc 11.4.0

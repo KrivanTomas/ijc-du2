@@ -25,11 +25,13 @@ int read_word(unsigned max, char s[max], FILE *f) {
         if(counter == max - 1) {
             if(!length_warning){
                 length_warning = true;
-                s[counter] = '\0';
-                fprintf(stderr, "Warning: word shortened to max length of %u\n", max);
-                return counter;
+                fprintf(stderr, "Warning: word shortened to max length of %u visible characters\n", max - 1);
             }
+            s[counter] = '\0';
+            // flush the reset of the word
+            while((ch = getc(f)) != EOF && !isspace(ch)) ;
+            return counter;
         }
     }
-    return EOF;
+    return word_started ? counter : EOF;
 }

@@ -19,4 +19,11 @@ struct htab {
    struct htab_item *table[];
 };
 
+size_t htab_hash_function_builtin(htab_key_t str);
+
+#ifndef MY_HASH_FUNCTION
+    #define htab_hash_function(str) htab_hash_function_builtin(str)
+#endif
+
+
 #endif
